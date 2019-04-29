@@ -1,0 +1,12 @@
+import serial
+
+serialport = serial.Serial("dev/ttyAMA0", 9600, timeout = 0.5)
+
+f = open("data.txt", "w+")
+c = 0;
+while (c<300):
+    command = serialport.read()
+    f.write(command)
+    c++;
+
+f.close()
